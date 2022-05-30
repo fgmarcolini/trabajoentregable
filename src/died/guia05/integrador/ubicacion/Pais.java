@@ -1,6 +1,17 @@
 package died.guia05.integrador.ubicacion;
 
 public class Pais extends Ubicacion{
+	private static Integer idTotal=0;
+	
+	public Pais() {
+		// TODO Auto-generated constructor stub
+		idTotal++;
+	}
+	
+	public Pais(String nombre) {
+		this();
+		this.nombre=nombre;
+	}
 
 	@Override
 	public boolean equalsTo(Ubicacion otro) {

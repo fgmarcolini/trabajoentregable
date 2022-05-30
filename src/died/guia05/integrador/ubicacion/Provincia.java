@@ -1,8 +1,19 @@
 package died.guia05.integrador.ubicacion;
 
 public class Provincia extends Ubicacion{
-	private static Integer idTotal;
+	private static Integer idTotal=0;
 	private Pais pais;
+	
+	public Provincia() {
+		// TODO Auto-generated constructor stub
+		idTotal++;
+	}
+	
+	public Provincia(String nombre, Pais pais) {
+		this();
+		this.nombre=nombre;
+		this.pais=pais;
+	}
 	
 	public Pais getPais() {
 		return pais;

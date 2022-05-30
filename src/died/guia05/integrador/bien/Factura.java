@@ -35,6 +35,10 @@ public class Factura implements Comparable<Factura>{
 		this.montoTotal = this.calculaMontoTotal();
 	}
 	
+	public Integer getId() {
+		return id;
+	}
+
 	private double calculaMontoTotal(){
 		Double montoAux = 0.0;
 		
@@ -50,6 +54,7 @@ public class Factura implements Comparable<Factura>{
 		}
 		catch(DistintoPaisException e) {
 			e.printStackTrace();
+			montoAux=0.0; 		// Se asume que si no se puede realizar el envio, el monto es 0.
 		}
 		catch(ExcesoBienException e) {
 			e.printStackTrace();
@@ -72,7 +77,7 @@ public class Factura implements Comparable<Factura>{
 		
 		// distinto pais
 		if(!paisProveedor.equals(paisResponsable)) {
-			throw new DistintoPaisException();
+			throw new DistintoPaisException("ERROR! El responsable y el proveedor viven en distintos paises.");
 		}
 		
 		// mismo pais, misma provincia, misma localidad
@@ -99,9 +104,9 @@ public class Factura implements Comparable<Factura>{
 	
 	private Double aplicaDescuento(Double monto) throws ExcesoBienException {
 		
-		// ninguna factura debe permitirse más de 20 bienes
+		// ninguna factura debe permitirse mï¿½s de 20 bienes
 		if(bienes.size() > 20) {
-			throw new ExcesoBienException();
+			throw new ExcesoBienException("ERROR! Una factura no puede cargarse con mÃ¡s de 20 bienes");
 		}
 		
 		else if(bienes.size() > 10) {

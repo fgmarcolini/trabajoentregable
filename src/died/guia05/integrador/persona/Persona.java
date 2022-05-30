@@ -56,6 +56,12 @@ public abstract class Persona implements CriterioBusqueda<Localidad>{
 				this.localidad.getProvincia().getPais().equalsTo(l.getProvincia().getPais()));
 				
 	}
+	
+	public String getUbicacionTotal() {
+		return this.getLocalidad().getNombre() + "," 
+				+ this.getLocalidad().getProvincia().getNombre() + "," 
+				+ this.getLocalidad().getProvincia().getPais().getNombre();
+	}
 
 	public String getNombre() {
 		// TODO Auto-generated method stub

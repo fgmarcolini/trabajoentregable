@@ -9,6 +9,7 @@ public class Bien {
 	private String descripcion;
 	private Double precio;
 	private Responsable responsable;
+
 	
 	public Bien() {
 		this.id = Bien.idTotal++;
@@ -20,6 +21,22 @@ public class Bien {
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.responsable = responsable;
+	}
+
+	public static Integer getIdTotal() {
+		return idTotal;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public String getAlias() {
+		return alias;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
 	}
 
 	public double getPrecio() {

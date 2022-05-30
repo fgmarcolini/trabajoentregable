@@ -6,4 +6,8 @@ public abstract class Ubicacion {
 
 	public abstract boolean equalsTo(Ubicacion otro);
 
+	public String getNombre() {
+		return this.nombre;
+	}
+
 }
